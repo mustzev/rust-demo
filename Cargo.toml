@@ -1,0 +1,21 @@
+[package]
+name = "rust-demo"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cornucopia_async = "0.6.0"
+deadpool-postgres = "0.12.1"
+dotenvy = "0.15.7"
+futures = "0.3.31"
+postgres-types = "0.2.9"
+serde = { version = "1.0.219", features = ["derive"] }
+time = { version = "0.3.41", features = ["macros", "serde"] }
+tokio = "1.45.0"
+tokio-postgres = { version = "0.7.13", features = ["with-time-0_3", "with-uuid-1"] }
+uuid = { version = "1.16.0", features = ["serde"] }
+
+[build-dependencies]
+cornucopia = "0.9.0"
+dotenvy = "0.15.7"
+postgres = "0.19.10"

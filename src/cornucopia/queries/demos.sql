@@ -1,0 +1,2 @@
+--! demos
+select * from demos;
