@@ -10,10 +10,10 @@ dotenvy = "0.15.7"
 futures = "0.3.31"
 postgres-types = "0.2.9"
 serde = { version = "1.0.219", features = ["derive"] }
-time = { version = "0.3.41", features = ["macros", "serde"] }
-tokio = "1.45.0"
+time = { version = "0.3.41", features = ["serde"] }
+tokio = { version = "1.45.0", features = ["macros", "rt-multi-thread"] }
 tokio-postgres = { version = "0.7.13", features = ["with-time-0_3", "with-uuid-1"] }
-uuid = { version = "1.16.0", features = ["serde"] }
+uuid = { version = "1.16.0", features = ["serde", "v4"] }
 
 [build-dependencies]
 cornucopia = "0.9.0"

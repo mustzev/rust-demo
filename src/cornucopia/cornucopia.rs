@@ -1,8 +1,10 @@
 use deadpool_postgres::{Config, CreatePoolError, Object, Runtime};
 use std::env;
+use time::OffsetDateTime;
 use tokio_postgres::NoTls;
+use uuid::Uuid;
 
-use super::queries::queries::demos;
+use super::queries::queries::demos::{demos, insert_demo};
 
 pub async fn create_client() -> Result<Object, CreatePoolError> {
     let (host, port, username, password, database) = (
@@ -25,5 +27,17 @@ pub async fn create_client() -> Result<Object, CreatePoolError> {
 
 pub async fn run() {
     let client = create_client().await.unwrap();
-    demos().bind(client)
+    let demo = insert_demo()
+        .bind(
+            &client,
+            &Uuid::new_v4(),
+            &"test",
+            &OffsetDateTime::now_utc(),
+        )
+        .one()
+        .await
+        .unwrap();
+    dbg!(demo);
+    let demos = demos().bind(&client).all().await.unwrap();
+    dbg!(demos);
 }
