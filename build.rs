@@ -30,6 +30,6 @@ fn main() -> Result<(), Error> {
     };
     println!("cargo:rerun-if-changed={queries_path}");
     let mut client = create_client().unwrap();
-    let _ = generate_live(&mut client, queries_path, Some(destination), settings);
+    generate_live(&mut client, queries_path, Some(destination), settings).unwrap();
     Ok(())
 }
