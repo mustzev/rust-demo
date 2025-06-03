@@ -1,6 +1,6 @@
 mod cornucopia;
 
-use cornucopia::cornucopia::run;
+use cornucopia::run::run;
 
 #[tokio::main]
 async fn main() {
