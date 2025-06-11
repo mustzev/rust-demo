@@ -1,10 +1,10 @@
-mod cornucopia;
-
-use cornucopia::run::run;
+// mod cornucopia;
+mod linfa;
 
 #[tokio::main]
 async fn main() {
     dotenvy::from_filename("env/.env").expect("Cannot load env variables");
 
-    run().await;
+    // cornucopia::run::run().await;
+    linfa::run::run();
 }
