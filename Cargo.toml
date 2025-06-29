@@ -19,6 +19,8 @@ uuid = { version = "1.16.0", features = ["serde", "v4"] }
 csv = "1.3.1"
 linfa = "0.7.1"
 ndarray = "0.16.1"
+encoding_rs = "0.8.35"
+encoding_rs_io = "0.1.7"
 
 [build-dependencies]
 cornucopia = "0.9.0"
